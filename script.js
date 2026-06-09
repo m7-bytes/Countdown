@@ -26,11 +26,16 @@ const messages = [
 
 let messageIndex = 0;
 
-setInterval(()=>{
+setInterval(() => {
 
+const status =
 document.getElementById(
 “statusMessage”
-).innerText =
+);
+
+if(status){
+
+status.innerText =
 messages[
 messageIndex %
 messages.length
@@ -38,15 +43,29 @@ messages.length
 
 messageIndex++;
 
+}
+
 },4000);
 
-const ring =
+const circle =
 document.getElementById(
-“ring”
+“progressCircle”
 );
 
+const radius = 100;
+
 const circumference =
-471;
+2 * Math.PI * radius;
+
+if(circle){
+
+circle.style.strokeDasharray =
+circumference;
+
+circle.style.strokeDashoffset =
+circumference;
+
+}
 
 function updateCountdown(){
 
@@ -54,32 +73,50 @@ const now =
 new Date();
 
 const distance =
-weddingDate -
-now;
+weddingDate - now;
 
 if(distance <= 0){
 
+const celebration =
+document.getElementById(
+“celebration”
+);
+
+const hero =
 document.querySelector(
-“.wrapper”
-).innerHTML =
+“.hero”
+);
 
-`
+const countdown =
+document.querySelector(
+“.countdown”
+);
 
-<div id="celebration">
-<div class="just-married">
+const progress =
+document.querySelector(
+“.progress-section”
+);
 
-Maaz ❤ Simra
+const stats =
+document.querySelector(
+“.stats”
+);
 
-</div>
-<div class="married-date">
+const verse =
+document.querySelector(
+“.verse”
+);
 
-JUST MARRIED
+if(hero) hero.style.display=“none”;
+if(countdown) countdown.style.display=“none”;
+if(progress) progress.style.display=“none”;
+if(stats) stats.style.display=“none”;
+if(verse) verse.style.display=“none”;
 
-28 AUGUST 2026
-
-</div>
-</div>
-`;
+if(celebration){
+celebration.style.display =
+“block”;
+}
 
 return;
 
@@ -88,34 +125,34 @@ return;
 const days =
 Math.floor(
 distance /
-(1000 * 60 * 60 * 24)
+(10006060*24)
 );
 
 const hours =
 Math.floor(
 (
 distance %
-(1000 * 60 * 60 * 24)
+(1000606024)
 )
 /
-(1000 * 60 * 60)
+(100060*60)
 );
 
 const minutes =
 Math.floor(
 (
 distance %
-(1000 * 60 * 60)
+(10006060)
 )
 /
-(1000 * 60)
+(1000*60)
 );
 
 const seconds =
 Math.floor(
 (
 distance %
-(1000 * 60)
+(1000*60)
 )
 /
 1000
@@ -153,7 +190,7 @@ const elapsed =
 now -
 journeyStart;
 
-const progress =
+const progressValue =
 Math.max(
 0,
 Math.min(
@@ -161,28 +198,35 @@ Math.min(
 (
 elapsed /
 totalJourney
-) * 100
+)
+*
+100
 )
 );
 
 document.getElementById(
 “progressPercent”
 ).innerText =
-progress.toFixed(1)
+progressValue
+.toFixed(1)
 +
 “%”;
+
+if(circle){
 
 const offset =
 circumference -
 (
-progress /
+progressValue /
 100
 )
 *
 circumference;
 
-ring.style.strokeDashoffset =
+circle.style.strokeDashoffset =
 offset;
+
+}
 
 document.getElementById(
 “sunrises”
@@ -194,7 +238,7 @@ document.getElementById(
 ).innerText =
 Math.floor(
 distance /
-(1000 * 60 * 60)
+(10006060)
 )
 .toLocaleString();
 
@@ -210,7 +254,7 @@ document.getElementById(
 ).innerText =
 Math.floor(
 distance /
-(1000 * 60)
+(1000*60)
 )
 .toLocaleString();
 
@@ -223,16 +267,18 @@ updateCountdown,
 1000
 );
 
-/* Background Stars */
+/* STAR FIELD */
 
 const stars =
 document.getElementById(
 “stars”
 );
 
+if(stars){
+
 for(
 let i = 0;
-i < 120;
+i < 180;
 i++
 ){
 
@@ -268,5 +314,7 @@ Math.random()
 stars.appendChild(
 star
 );
+
+}
 
 }
