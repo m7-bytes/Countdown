@@ -28,7 +28,7 @@ body {
     position: relative;
 }
 
-/* --- Expanded Rich CSS Starry Sky Layer --- */
+/* --- High-Density Rich CSS Starry Sky Layer --- */
 .starry-sky {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -44,11 +44,10 @@ body {
     background: var(--accent-gold);
     border-radius: 50%;
     opacity: 0.2;
-    /* Slowed down time values to stop rapid blinking */
     animation: twinkle 5s infinite alternate ease-in-out;
 }
 
-/* 24-Point High Density Positional Map */
+/* 33-Point Distinct Positional Coordinate Blueprint */
 .star:nth-child(1) { top: 8%; left: 7%; animation-delay: 0s; }
 .star:nth-child(2) { top: 25%; left: 22%; animation-delay: 1.5s; width: 3px; height: 3px; }
 .star:nth-child(3) { top: 10%; left: 78%; animation-delay: 0.7s; }
@@ -61,7 +60,6 @@ body {
 .star:nth-child(10) { top: 82%; left: 58%; animation-delay: 2.1s; }
 .star:nth-child(11) { top: 38%; left: 14%; animation-delay: 2.8s; }
 .star:nth-child(12) { top: 18%; left: 48%; animation-delay: 1.3s; width: 3px; height: 3px; }
-/* Additional Stars for Background Depth */
 .star:nth-child(13) { top: 5%; left: 40%; animation-delay: 4.2s; }
 .star:nth-child(14) { top: 14%; left: 62%; animation-delay: 2.6s; }
 .star:nth-child(15) { top: 32%; left: 35%; animation-delay: 0.9s; }
@@ -74,6 +72,16 @@ body {
 .star:nth-child(22) { top: 28%; left: 55%; animation-delay: 3.9s; }
 .star:nth-child(23) { top: 95%; left: 42%; animation-delay: 0.8s; }
 .star:nth-child(24) { top: 40%; left: 28%; animation-delay: 2.9s; width: 3px; height: 3px; }
+/* New Cluster Points for Added Density (+38% Growth Frame) */
+.star:nth-child(25) { top: 15%; left: 20%; animation-delay: 1.1s; }
+.star:nth-child(26) { top: 3%; left: 92%; animation-delay: 4.5s; }
+.star:nth-child(27) { top: 52%; left: 45%; animation-delay: 2.2s; }
+.star:nth-child(28) { top: 60%; left: 95%; animation-delay: 0.6s; width: 3px; height: 3px; }
+.star:nth-child(29) { top: 75%; left: 10%; animation-delay: 3.4s; }
+.star:nth-child(30) { top: 23%; left: 68%; animation-delay: 1.8s; }
+.star:nth-child(31) { top: 80%; left: 88%; animation-delay: 4.1s; }
+.star:nth-child(32) { top: 45%; left: 20%; animation-delay: 0.3s; }
+.star:nth-child(33) { top: 90%; left: 50%; animation-delay: 2.7s; width: 3px; height: 3px; }
 
 /* --- Delicate Luxury Border Frame --- */
 body::before {
@@ -134,7 +142,7 @@ h1 {
     opacity: 0.8;
     margin-bottom: 3.5rem;
     font-weight: 300;
-    white-space: nowrap;          /* Guaranteed to remain on one single line */
+    white-space: nowrap;
     overflow: visible;
     text-align: center;
 }
@@ -326,7 +334,6 @@ h1 {
     .heart-icon { font-size: 1.8rem; }
     h1, .reveal-title { font-size: 2rem; }
     
-    /* Dynamically downscaling font size here safely preserves single line requirement */
     .date-string { font-size: 0.75rem; letter-spacing: 0.16rem; margin-bottom: 2.5rem; }
     
     .timer-container { gap: 12px; }
