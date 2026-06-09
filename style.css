@@ -1,9 +1,9 @@
 /* --- Dark & Premium Gold Theme Variables --- */
 :root {
-    --bg-color: #0b0b0a;          /* Deep rich obsidian dark */
-    --panel-bg: #141311;          /* Tinted charcoal surface */
+    --bg-color: #070706;          /* Deep rich matte black hole dark */
+    --panel-bg: rgba(20, 19, 17, 0.7); /* Slightly translucent to see stars behind */
     --accent-gold: #dfc198;       /* Radiant elegant gold for everything */
-    --gold-glow: rgba(223, 193, 152, 0.25);
+    --gold-glow: rgba(223, 193, 152, 0.35);
     --border-gold: #383229;       /* Subdued background frames */
     --serif-font: 'Cinzel', serif;
     --sans-font: 'Montserrat', sans-serif;
@@ -28,14 +28,30 @@ body {
     position: relative;
 }
 
-/* --- Delicate Border Frame --- */
+/* --- Interactive Starry Background --- */
+.stars, .stars2 {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    display: block;
+    pointer-events: none;
+}
+
+.stars {
+    background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><circle cx="50" cy="80" r="1" fill="%23dfc198" opacity="0.6"/><circle cx="150" cy="40" r="1.5" fill="%23dfc198" opacity="0.8"/><circle cx="280" cy="120" r="1" fill="%23dfc198" opacity="0.5"/><circle cx="350" cy="320" r="1.2" fill="%23dfc198" opacity="0.7"/><circle cx="90" cy="250" r="1.5" fill="%23dfc198" opacity="0.9"/><circle cx="220" cy="290" r="1" fill="%23dfc198" opacity="0.4"/></svg>') repeat;
+    animation: twinkle 4s infinite alternate ease-in-out;
+}
+
+.stars2 {
+    background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"><circle cx="120" cy="180" r="1.2" fill="%23dfc198" opacity="0.5"/><circle cx="390" cy="70" r="1" fill="%23dfc198" opacity="0.6"/><circle cx="450" cy="220" r="1.5" fill="%23dfc198" opacity="0.8"/><circle cx="320" cy="420" r="1" fill="%23dfc198" opacity="0.4"/><circle cx="70" cy="390" r="1.3" fill="%23dfc198" opacity="0.7"/><circle cx="200" cy="110" r="1" fill="%23dfc198" opacity="0.5"/></svg>') repeat;
+    animation: twinkle 6s infinite alternate-reverse ease-in-out;
+}
+
+/* --- Delicate Luxury Border Frame --- */
 body::before {
     content: '';
     position: fixed;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
+    top: 20px; left: 20px; right: 20px; bottom: 20px;
     border: 1px solid var(--border-gold);
     pointer-events: none;
     z-index: 10;
@@ -51,24 +67,25 @@ body::before {
     animation: fadeInUp 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-/* --- Initials with Glowing Gold Heart --- */
+/* --- Enhanced Monogram: Bold & Larger --- */
 .initials {
     font-family: var(--serif-font);
-    font-size: 2.5rem;
-    letter-spacing: 0.3rem;
+    font-size: 3.2rem;             /* Increased size */
+    font-weight: 700;              /* Bolder typography */
+    letter-spacing: 0.4rem;
     color: var(--accent-gold);
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .heart-icon {
-    font-size: 1.8rem;
+    font-size: 2.2rem;             /* Balanced scaling for heart icon */
     color: var(--accent-gold);
-    text-shadow: 0 0 15px var(--gold-glow);
-    animation: pulse 2.5s infinite alternate;
+    text-shadow: 0 0 18px var(--gold-glow);
+    animation: pulse 2s infinite alternate cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 h1 {
@@ -78,14 +95,12 @@ h1 {
     letter-spacing: 0.2rem;
     line-height: 1.3;
     margin-bottom: 1.5rem;
-    color: var(--accent-gold);
 }
 
 .date-string {
     font-size: 1rem;
     letter-spacing: 0.4rem;
     text-transform: uppercase;
-    color: var(--accent-gold);
     opacity: 0.8;
     margin-bottom: 3.5rem;
     font-weight: 300;
@@ -101,17 +116,16 @@ h1 {
 }
 
 .timer-box {
-    position: relative;
     padding: 20px 10px;
     background: var(--panel-bg);
     border: 1px solid var(--border-gold);
     border-bottom: 2px solid var(--accent-gold);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     transition: all 0.3s ease;
 }
 
 .timer-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: 0 8px 25px var(--gold-glow);
 }
 
@@ -119,7 +133,6 @@ h1 {
     font-family: var(--serif-font);
     font-size: 3.5rem;
     font-weight: 400;
-    color: var(--accent-gold);
     line-height: 1;
     margin-bottom: 8px;
 }
@@ -128,12 +141,10 @@ h1 {
     font-size: 0.75rem;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
-    color: var(--accent-gold);
     opacity: 0.7;
-    font-weight: 400;
 }
 
-/* --- Redesigned Elite Progress Box with Nested Inside Numbers --- */
+/* --- Thick Progress Box with Internal Centered Percentage --- */
 .progress-section {
     max-width: 500px;
     margin: 0 auto 3.5rem auto;
@@ -144,15 +155,14 @@ h1 {
     font-size: 0.85rem;
     letter-spacing: 0.15rem;
     text-transform: uppercase;
-    color: var(--accent-gold);
     margin-bottom: 15px;
 }
 
 .progress-block-container {
-    position: relative;            /* Allows text layer override */
+    position: relative;
     width: 100%;
-    height: 42px;                 /* Increased height to comfortably balance internal text */
-    background-color: #12110f;    /* Sleek inset dark bay */
+    height: 44px;
+    background-color: #12110f;
     border: 1px solid var(--border-gold);
     border-bottom: 2px solid var(--accent-gold);
     display: flex;
@@ -164,28 +174,25 @@ h1 {
 
 .percent-display-mid {
     position: absolute;
-    z-index: 5;                   /* Always floats neatly over the fill line */
+    z-index: 5;
     font-size: 1.05rem;
-    font-weight: 500;
-    letter-spacing: 0.1rem;
+    font-weight: 600;
+    letter-spacing: 0.12rem;
     color: var(--accent-gold);
-    mix-blend-mode: difference;   /* Master-stroke visual property: guarantees visibility over gold */
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+    mix-blend-mode: difference;   /* Ensures text flips color perfectly as gold fills underneath */
 }
 
 .progress-block-fill {
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left: 0; top: 0; bottom: 0;
     width: 0%;
-    background: linear-gradient(90deg, #2c251e, var(--accent-gold)); 
+    background: linear-gradient(90deg, #30271e, var(--accent-gold)); 
     box-shadow: 2px 0 12px var(--gold-glow);
     transition: width 0.5s ease-out;
     z-index: 1;
 }
 
-/* --- Sacred Supplication Panel (Ibadah Focus) --- */
+/* --- Sacred Supplication Panel --- */
 .quote-container {
     background: var(--panel-bg);
     border: 1px solid var(--border-gold);
@@ -196,12 +203,13 @@ h1 {
 }
 
 .ibadah-notice {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     letter-spacing: 0.25rem;
     text-transform: uppercase;
+    white-space: nowrap;          /* Guaranteed single-line display */
     opacity: 0.6;
-    margin-bottom: 15px;
-    font-weight: 400;
+    margin-bottom: 18px;
+    font-weight: 500;
 }
 
 .quran-text {
@@ -209,7 +217,6 @@ h1 {
     font-style: italic;
     font-weight: 300;
     line-height: 1.8;
-    color: var(--accent-gold);
     margin-bottom: 12px;
 }
 
@@ -217,33 +224,84 @@ h1 {
     font-size: 0.75rem;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
-    color: var(--accent-gold);
     opacity: 0.8;
     font-weight: 500;
 }
 
-/* --- Core Animations --- */
+/* --- Surprise Reveal Styling --- */
+.surprise-hidden {
+    display: none;
+    opacity: 0;
+}
+
+.surprise-visible {
+    display: block !important;
+    animation: fadeIn 2s ease-in forwards;
+    margin-bottom: 3.5rem;
+    padding: 0 15px;
+}
+
+.reveal-title {
+    font-family: var(--serif-font);
+    font-size: 3.2rem;
+    font-weight: 400;
+    letter-spacing: 0.3rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px var(--gold-glow);
+}
+
+.reveal-message {
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 2;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.reveal-message strong {
+    font-family: var(--serif-font);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    text-shadow: 0 0 10px var(--gold-glow);
+}
+
+.reveal-subtext {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.05rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* --- Core Keyframe Sequences --- */
 @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
-
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
 @keyframes pulse {
-    0% { transform: scale(1); opacity: 0.85; }
-    100% { transform: scale(1.08); opacity: 1; text-shadow: 0 0 20px var(--gold-glow); }
+    0% { transform: scale(1); }
+    100% { transform: scale(1.06); text-shadow: 0 0 25px var(--gold-glow); }
+}
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
 }
 
-/* --- Adaptability for Mobile --- */
+/* --- Mobile Responsiveness --- */
 @media (max-width: 600px) {
     body::before { top: 12px; left: 12px; right: 12px; bottom: 12px; }
-    h1 { font-size: 2rem; }
+    .initials { font-size: 2.6rem; }
+    .heart-icon { font-size: 1.8rem; }
+    h1, .reveal-title { font-size: 2rem; }
     .timer-container { gap: 12px; }
     .number { font-size: 2.2rem; }
     .label { font-size: 0.65rem; letter-spacing: 0.1rem; }
     .quote-container { padding: 20px 15px; }
     .quran-text { font-size: 1rem; }
-    .progress-block-container { height: 38px; }
-    .percent-display-mid { font-size: 0.95rem; }
+    .reveal-message { font-size: 1.05rem; line-height: 1.8; }
+    .reveal-subtext { font-size: 0.95rem; }
+    .ibadah-notice { font-size: 0.6rem; letter-spacing: 0.18rem; }
 }
