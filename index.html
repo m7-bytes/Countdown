@@ -4,186 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Beginning | August 28, 2026</title>
+    
+    <!-- Fonts: Elegant Serif and Clean Sans-Serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
     
-    <style>
-        :root {
-            --bg-color: #fcfbfa;
-            --primary-text: #2c2a29;
-            --accent-gold: #c5a880;
-            --light-gold: #e5d4bc;
-            --serif-font: 'Cinzel', serif;
-            --sans-font: 'Montserrat', sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--primary-text);
-            font-family: var(--sans-font);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Subtle Luxury Border Frame */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            border: 1px solid var(--light-gold);
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .container {
-            text-align: center;
-            max-width: 800px;
-            padding: 40px 20px;
-            z-index: 2;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-
-        /* Header Styling */
-        .initials {
-            font-family: var(--serif-font);
-            font-size: 2.5rem;
-            letter-spacing: 0.3rem;
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-family: var(--serif-font);
-            font-size: 3rem;
-            font-weight: 400;
-            letter-spacing: 0.2rem;
-            line-height: 1.3;
-            margin-bottom: 1.5rem;
-        }
-
-        .date-string {
-            font-size: 1rem;
-            letter-spacing: 0.4rem;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            margin-bottom: 3.5rem;
-            font-weight: 300;
-        }
-
-        /* Timer Layout */
-        .timer-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            max-width: 600px;
-            margin: 0 auto 3.5rem auto;
-        }
-
-        .timer-box {
-            position: relative;
-            padding: 20px 10px;
-            background: rgba(255, 255, 255, 0.6);
-            border-bottom: 1px solid var(--light-gold);
-            transition: transform 0.3s ease;
-        }
-
-        .timer-box:hover {
-            transform: translateY(-5px);
-        }
-
-        .number {
-            font-family: var(--serif-font);
-            font-size: 3.5rem;
-            font-weight: 400;
-            color: var(--primary-text);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .label {
-            font-size: 0.75rem;
-            letter-spacing: 0.2rem;
-            text-transform: uppercase;
-            color: #7a7571;
-            font-weight: 400;
-        }
-
-        /* Message Section */
-        .message {
-            font-size: 1.1rem;
-            font-style: italic;
-            font-weight: 300;
-            line-height: 1.8;
-            color: #555;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .message strong {
-            color: var(--accent-gold);
-            font-weight: 400;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            body::before {
-                top: 12px;
-                left: 12px;
-                right: 12px;
-                bottom: 12px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .timer-container {
-                gap: 12px;
-            }
-
-            .number {
-                font-size: 2.2rem;
-            }
-
-            .label {
-                font-size: 0.65rem;
-                letter-spacing: 0.1rem;
-            }
-        }
-    </style>
+    <!-- FontAwesome for the elegant heart icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <div class="initials">M & S</div>
+        <!-- Initials separated by a glowing heart -->
+        <div class="initials">
+            <span>M</span>
+            <i class="fa-solid fa-heart heart-icon"></i>
+            <span>S</span>
+        </div>
+        
         <h1>The Countdown to Our Forever</h1>
         <div class="date-string">August 28, 2026</div>
 
+        <!-- Countdown Timer -->
         <div class="timer-container">
             <div class="timer-box">
                 <div id="days" class="number">00</div>
@@ -203,51 +48,21 @@
             </div>
         </div>
 
-        <p class="message" id="status-message">Counting down every beautiful moment.</p>
+        <!-- Dynamic Percentile Tracking Section -->
+        <div class="progress-section">
+            <div class="progress-text">Our Journey to August 28: <span id="percent-value">0.00%</span> Complete</div>
+            <div class="progress-bar-container">
+                <div id="progress-bar-fill" class="progress-bar-fill"></div>
+            </div>
+        </div>
+
+        <!-- Dynamic Quranic Quote Panel -->
+        <div class="quote-container">
+            <p id="quran-quote" class="quran-text"></p>
+            <p id="quran-surah" class="quran-reference"></p>
+        </div>
     </div>
 
-    <script>
-        // Set the targeted wedding date
-        const targetDate = new Date("August 28, 2026 00:00:00").getTime();
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            // Select display elements
-            const daysElement = document.getElementById("days");
-            const hoursElement = document.getElementById("hours");
-            const minutesElement = document.getElementById("minutes");
-            const secondsElement = document.getElementById("seconds");
-            const messageElement = document.getElementById("status-message");
-
-            // If the countdown is finished
-            if (difference < 0) {
-                clearInterval(timerInterval);
-                daysElement.innerText = "00";
-                hoursElement.innerText = "00";
-                minutesElement.innerText = "00";
-                secondsElement.innerText = "00";
-                messageElement.innerHTML = "<strong>The Day Has Arrived.</strong> Forever begins today.";
-                return;
-            }
-
-            // Time calculations for days, hours, minutes and seconds
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            // Output the results with leading zeros for clean alignment
-            daysElement.innerText = days < 10 ? "0" + days : days;
-            hoursElement.innerText = hours < 10 ? "0" + hours : hours;
-            minutesElement.innerText = minutes < 10 ? "0" + minutes : minutes;
-            secondsElement.innerText = seconds < 10 ? "0" + seconds : seconds;
-        }
-
-        // Update countdown immediately, then every 1 second
-        updateCountdown();
-        const timerInterval = setInterval(updateCountdown, 1000);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
