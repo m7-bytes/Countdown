@@ -1,7 +1,7 @@
 :root{
 –gold:#D4AF37;
-–bg:#080808;
-–text:#F5F1E8;
+–ivory:#F5F1E8;
+–black:#050816;
 }
 
 *{
@@ -11,189 +11,172 @@ box-sizing:border-box;
 }
 
 body{
-background:var(–bg);
-color:var(–text);
+
 font-family:‘Inter’,sans-serif;
+
 min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
+
+background:linear-gradient(
+-45deg,
+#050816,
+#0f172a,
+#1e1b4b,
+#312e81
+);
+
+background-size:400% 400%;
+
+animation:galaxy 18s ease infinite;
+
+color:var(–ivory);
+
+overflow-x:hidden;
+
 position:relative;
+
+}
+
+@keyframes galaxy{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
 }
 
 #stars{
+
 position:fixed;
-inset:0;
-z-index:0;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
 pointer-events:none;
+
+z-index:0;
+
 }
 
 .star{
+
 position:absolute;
-width:2px;
-height:2px;
+
+width:3px;
+height:3px;
+
 background:white;
+
 border-radius:50%;
-opacity:.4;
+
+box-shadow:
+0 0 8px white,
+0 0 16px white;
+
+opacity:.7;
+
 animation:twinkle 5s infinite;
+
 }
 
 @keyframes twinkle{
-0%,100%{opacity:.15;}
-50%{opacity:.8;}
+
+0%,100%{
+opacity:.2;
 }
 
-.wrapper{
-position:relative;
-z-index:2;
-width:100%;
-max-width:390px;
-padding:20px;
+50%{
+opacity:1;
+}
+
+}
+
+.container{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:25px 20px;
+
 text-align:center;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.hero{
+
+margin-top:15px;
+
 }
 
 .couple-header{
+
 display:flex;
+
 justify-content:center;
+
 align-items:center;
-gap:16px;
+
+gap:18px;
+
 font-family:‘Cormorant Garamond’,serif;
-font-size:3.5rem;
+
+font-size:4.5rem;
+
+font-weight:500;
+
 color:var(–gold);
+
 }
 
 .heart{
+
 animation:pulse 2s infinite;
+
 }
 
 @keyframes pulse{
+
 50%{
 transform:scale(1.15);
 }
+
 }
 
 .date{
-margin-top:8px;
-font-size:.8rem;
+
+margin-top:10px;
+
 letter-spacing:3px;
-opacity:.7;
+
+font-size:.9rem;
+
+opacity:.8;
+
 }
 
 #statusMessage{
+
 margin-top:15px;
+
 color:var(–gold);
-min-height:20px;
-font-size:.95rem;
-}
 
-.countdown{
-display:flex;
-justify-content:center;
-gap:10px;
-margin-top:25px;
-}
+font-size:1rem;
 
-.time-card{
-width:82px;
-padding:14px 10px;
-background:#111;
-border-radius:14px;
-border:1px solid rgba(212,175,55,.15);
-}
+min-height:24px;
 
-.time-number{
-font-family:‘Cormorant Garamond’,serif;
-font-size:2.6rem;
-font-weight:600;
-color:var(–gold);
-line-height:1;
-}
-
-.time-label{
-margin-top:8px;
-font-size:.6rem;
-letter-spacing:2px;
-opacity:.6;
-}
-
-.progress-wrap{
-margin-top:25px;
-display:flex;
-justify-content:center;
-}
-
-.progress-ring{
-position:relative;
-width:170px;
-height:170px;
-}
-
-.progress-ring svg{
-transform:rotate(-90deg);
-}
-
-.progress-content{
-position:absolute;
-inset:0;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-}
-
-.progress-content h2{
-font-family:‘Cormorant Garamond’,serif;
-font-size:2rem;
-color:var(–gold);
-}
-
-.progress-content span{
-font-size:.75rem;
-opacity:.75;
-}
-
-.stats{
-margin-top:20px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-}
-
-.stat{
-background:rgba(255,255,255,.03);
-border-radius:12px;
-padding:12px;
-border:1px solid rgba(212,175,55,.08);
-}
-
-.stat-number{
-font-family:‘Cormorant Garamond’,serif;
-font-size:1.5rem;
-color:var(–gold);
-}
-
-.stat-title{
-font-size:.7rem;
-opacity:.65;
-margin-top:4px;
-}
-
-.verse{
-margin-top:20px;
-font-size:.78rem;
-line-height:1.5;
-opacity:.75;
-}
-
-.just-married{
-font-family:‘Cormorant Garamond’,serif;
-font-size:3rem;
-color:var(–gold);
-}
-
-.married-date{
-margin-top:15px;
-letter-spacing:3px;
-opacity:.75;
 }
