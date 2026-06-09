@@ -8,7 +8,7 @@
     <!-- Fonts: Elegant Serif and Clean Sans-Serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- FontAwesome for the unified gold heart icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,51 +17,65 @@
 </head>
 <body>
 
+    <!-- Ambient Starry Sky Layers -->
+    <div class="stars"></div>
+    <div class="stars2"></div>
+
     <div class="container">
-        <!-- Initials separated by a glowing gold heart -->
+        <!-- Prominent, bold initials separated by a glowing gold heart -->
         <div class="initials">
             <span>M</span>
             <i class="fa-solid fa-heart heart-icon"></i>
             <span>S</span>
         </div>
         
-        <h1>The Countdown to Our Forever</h1>
-        <div class="date-string">August 28, 2026 • 8:00 PM</div>
+        <!-- Main Content Area (Changes dynamically on the wedding night) -->
+        <div id="main-countdown-area">
+            <h1>The Countdown to Our Forever</h1>
+            <div class="date-string">August 28, 2026 • 8:00 PM</div>
 
-        <!-- Countdown Timer -->
-        <div class="timer-container">
-            <div class="timer-box">
-                <div id="days" class="number">00</div>
-                <div class="label">Days</div>
+            <!-- Countdown Timer -->
+            <div class="timer-container">
+                <div class="timer-box">
+                    <div id="days" class="number">00</div>
+                    <div class="label">Days</div>
+                </div>
+                <div class="timer-box">
+                    <div id="hours" class="number">00</div>
+                    <div class="label">Hours</div>
+                </div>
+                <div class="timer-box">
+                    <div id="minutes" class="number">00</div>
+                    <div class="label">Mins</div>
+                </div>
+                <div class="timer-box">
+                    <div id="seconds" class="number">00</div>
+                    <div class="label">Secs</div>
+                </div>
             </div>
-            <div class="timer-box">
-                <div id="hours" class="number">00</div>
-                <div class="label">Hours</div>
-            </div>
-            <div class="timer-box">
-                <div id="minutes" class="number">00</div>
-                <div class="label">Mins</div>
-            </div>
-            <div class="timer-box">
-                <div id="seconds" class="number">00</div>
-                <div class="label">Secs</div>
+
+            <!-- Timeline Container with Internal Centered Counter -->
+            <div class="progress-section">
+                <div class="progress-title">The Gathering of Our Hearts</div>
+                <div class="progress-block-container">
+                    <div id="percent-value" class="percent-display-mid">0.0000%</div>
+                    <div id="progress-block-fill" class="progress-block-fill"></div>
+                </div>
             </div>
         </div>
 
-        <!-- Upgraded Timeline Container with Internal Centered Counter -->
-        <div class="progress-section">
-            <div class="progress-title">The Gathering of Our Hearts</div>
-            <div class="progress-block-container">
-                <!-- The numerical value sits centered in the frame -->
-                <div id="percent-value" class="percent-display-mid">0.0000%</div>
-                <!-- The physical filling block layer -->
-                <div id="progress-block-fill" class="progress-block-fill"></div>
-            </div>
+        <!-- The Day-Of Surprise Reveal Area (Hidden until Aug 28, 8PM) -->
+        <div id="surprise-reveal-area" class="surprise-hidden">
+            <h2 class="reveal-title">The Wait is Over</h2>
+            <p class="reveal-message">
+                Welcome to our forever, <strong>Mrs. Simra Maaz</strong>.<br>
+                <span class="reveal-subtext">Written in the heavens, and now bound on Earth. My answered prayer, my continuous peace, and the companion of my soul into eternity. Alhamdulillah, our chapter begins tonight.</span>
+            </p>
         </div>
 
         <!-- Dynamic Worship/Dua Panel -->
         <div class="quote-container">
-            <div class="ibadah-notice">— A Shared Intention & Supplication —</div>
+            <div class="ibadah-notice">A SHARED INTENTION & SUPPLICATION</div>
             <p id="quran-quote" class="quran-text"></p>
             <p id="quran-surah" class="quran-reference"></p>
         </div>
