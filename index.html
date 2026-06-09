@@ -4,238 +4,431 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>Maaz ❤️ Simra | Countdown To Forever</title>
+<title>Maaz ❤️ Simra</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
+
 --gold:#D4AF37;
---ivory:#F5F1E8;
---black:#0B0B0B;
+--bg:#080808;
 --card:#111111;
+--text:#F5F1E8;
+
 }
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
 }
 
-html{
-scroll-behavior:smooth;
+html,
+body{
+
+height:100%;
+
 }
 
 body{
-background:var(--black);
-color:var(--ivory);
+
+background:var(--bg);
+
+color:var(--text);
+
 font-family:'Inter',sans-serif;
-overflow-x:hidden;
-min-height:100vh;
-position:relative;
+
+overflow:hidden;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
 }
 
 #stars{
+
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+
+inset:0;
+
 z-index:0;
+
 pointer-events:none;
+
 }
 
 .star{
+
 position:absolute;
+
 width:2px;
+
 height:2px;
+
 background:white;
+
 border-radius:50%;
+
 opacity:.4;
+
 animation:twinkle 5s infinite;
+
 }
 
 @keyframes twinkle{
-0%,100%{opacity:.2;}
-50%{opacity:1;}
+
+0%,100%{
+opacity:.15;
 }
 
-.container{
-position:relative;
-z-index:2;
-max-width:1200px;
-margin:auto;
-padding:40px 20px;
-}
-
-.hero{
-text-align:center;
-margin-top:40px;
-}
-
-.hero h1{
-font-family:'Cormorant Garamond',serif;
-font-size:5rem;
-font-weight:500;
-letter-spacing:2px;
-color:var(--gold);
-}
-
-.hero p{
-margin-top:12px;
-font-size:1rem;
-letter-spacing:3px;
-text-transform:uppercase;
+50%{
 opacity:.8;
 }
 
-#line{
-width:180px;
-height:1px;
-background:var(--gold);
-margin:25px auto;
-opacity:.5;
 }
 
-#statusMessage{
-margin-top:15px;
-font-size:1.05rem;
+.wrapper{
+
+position:relative;
+
+z-index:2;
+
+width:100%;
+
+max-width:430px;
+
+padding:20px;
+
+text-align:center;
+
+}
+
+.names{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:14px;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:3rem;
+
+font-weight:500;
+
 color:var(--gold);
-min-height:30px;
-letter-spacing:1px;
+
+}
+
+.heart{
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.15);
+}
+
+}
+
+.date{
+
+margin-top:8px;
+
+letter-spacing:3px;
+
+font-size:.75rem;
+
+opacity:.75;
+
+}
+
+#status{
+
+margin-top:15px;
+
+color:var(--gold);
+
+font-size:.95rem;
+
+min-height:20px;
+
 }
 
 .flip-clock{
+
 display:flex;
+
 justify-content:center;
-gap:25px;
-flex-wrap:wrap;
-margin-top:70px;
+
+gap:10px;
+
+margin-top:25px;
+
 }
 
-.flip-unit{
-text-align:center;
-}
+.unit{
 
-.flip-card{
-position:relative;
-width:130px;
-height:140px;
-background:#161616;
-border-radius:18px;
-overflow:hidden;
-border:1px solid rgba(212,175,55,.2);
-box-shadow:0 0 20px rgba(212,175,55,.05);
-}
-
-.flip-card::before{
-content:'';
-position:absolute;
-top:50%;
-left:0;
-width:100%;
-height:1px;
-background:rgba(255,255,255,.15);
-z-index:3;
-}
-
-.flip-number{
-font-size:4rem;
-font-weight:600;
-color:var(--gold);
-height:100%;
 display:flex;
+
+flex-direction:column;
+
 align-items:center;
+
+}
+
+.flip{
+
+width:82px;
+
+height:90px;
+
+background:#141414;
+
+border-radius:14px;
+
+position:relative;
+
+overflow:hidden;
+
+border:1px solid rgba(212,175,55,.15);
+
+box-shadow:
+0 0 25px rgba(212,175,55,.05);
+
+}
+
+.flip::before{
+
+content:'';
+
+position:absolute;
+
+left:0;
+
+top:50%;
+
+width:100%;
+
+height:1px;
+
+background:rgba(255,255,255,.08);
+
+}
+
+.num{
+
+height:100%;
+
+display:flex;
+
+align-items:center;
+
 justify-content:center;
+
+font-size:2.9rem;
+
 font-family:'Cormorant Garamond',serif;
+
+color:var(--gold);
+
+transform-origin:center;
+
+transition:.35s ease;
+
 }
 
-.flip-label{
-margin-top:15px;
-font-size:.8rem;
-letter-spacing:4px;
-color:rgba(255,255,255,.6);
+.label{
+
+margin-top:8px;
+
+font-size:.65rem;
+
+letter-spacing:2px;
+
+opacity:.55;
+
 }
 
-.progress-section{
-margin-top:90px;
-text-align:center;
+.progress-wrap{
+
+margin-top:30px;
+
+display:flex;
+
+justify-content:center;
+
 }
 
 .progress-ring{
-width:240px;
-height:240px;
-margin:auto;
+
 position:relative;
+
+width:170px;
+
+height:170px;
+
 }
 
 .progress-ring svg{
+
 transform:rotate(-90deg);
-}
 
-.progress-ring circle{
-fill:none;
-stroke-width:10;
-}
-
-.progress-bg{
-stroke:#2a2a2a;
-}
-
-.progress-fill{
-stroke:var(--gold);
-stroke-linecap:round;
-stroke-dasharray:628;
-stroke-dashoffset:628;
-transition:1s;
 }
 
 .progress-content{
+
 position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
+
+inset:0;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
 }
 
 .progress-content h2{
-font-size:3rem;
-color:var(--gold);
+
+font-size:2rem;
+
 font-family:'Cormorant Garamond',serif;
+
+color:var(--gold);
+
 }
 
-.progress-content p{
-font-size:.9rem;
-opacity:.8;
-}
+.progress-content span{
 
-.stats{
-margin-top:80px;
+font-size:.75rem;
+
+opacity:.75;
+
+}
+    .stats{
+
+margin-top:25px;
+
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+
+grid-template-columns:1fr 1fr;
+
+gap:10px;
+
 }
 
-.stat-card{
+.stat{
+
 background:rgba(255,255,255,.03);
-padding:25px;
-border-radius:18px;
+
 border:1px solid rgba(212,175,55,.08);
-backdrop-filter:blur(10px);
+
+border-radius:14px;
+
+padding:12px;
+
 }
 
 .stat-number{
-font-size:2rem;
-color:var(--gold);
+
+font-size:1.4rem;
+
 font-family:'Cormorant Garamond',serif;
-margin-bottom:8px;
+
+color:var(--gold);
+
 }
 
 .stat-title{
-font-size:.9rem;
+
+font-size:.7rem;
+
+opacity:.65;
+
+margin-top:4px;
+
+}
+
+.verse{
+
+margin-top:22px;
+
+font-size:.78rem;
+
+line-height:1.5;
+
+opacity:.7;
+
+padding:0 10px;
+
+}
+
+#celebration{
+
+display:none;
+
+}
+
+.just-married{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:3.5rem;
+
+color:var(--gold);
+
+}
+
+.married-date{
+
+margin-top:10px;
+
+letter-spacing:3px;
+
 opacity:.75;
+
+}
+
+@media(max-width:390px){
+
+.names{
+
+font-size:2.5rem;
+
+}
+
+.flip{
+
+width:72px;
+
+height:82px;
+
+}
+
+.num{
+
+font-size:2.5rem;
+
+}
+
 }
 
 </style>
@@ -246,80 +439,127 @@ opacity:.75;
 
 <div id="stars"></div>
 
-<div class="container">
+<div class="wrapper">
 
-<div class="hero">
+<div class="main-content" id="mainContent">
 
-<h1>Maaz ❤️ Simra</h1>
+<div class="names">
 
-<div id="line"></div>
+<span>Maaz</span>
 
-<p>28 August 2026 • 8:00 PM IST</p>
+<span class="heart">❤</span>
 
-<div id="statusMessage"></div>
+<span>Simra</span>
+
+</div>
+
+<div class="date">
+
+28 AUGUST 2026 • 8:00 PM
+
+</div>
+
+<div id="status">
+
+Counting Down To Forever
 
 </div>
 
 <div class="flip-clock">
 
-<div class="flip-unit">
-<div class="flip-card">
-<div class="flip-number" id="days">000</div>
-</div>
-<div class="flip-label">DAYS</div>
+<div class="unit">
+
+<div class="flip">
+<div class="num" id="days">000</div>
 </div>
 
-<div class="flip-unit">
-<div class="flip-card">
-<div class="flip-number" id="hours">00</div>
-</div>
-<div class="flip-label">HOURS</div>
-</div>
-
-<div class="flip-unit">
-<div class="flip-card">
-<div class="flip-number" id="minutes">00</div>
-</div>
-<div class="flip-label">MINUTES</div>
-</div>
-
-<div class="flip-unit">
-<div class="flip-card">
-<div class="flip-number" id="seconds">00</div>
-</div>
-<div class="flip-label">SECONDS</div>
+<div class="label">
+DAYS
 </div>
 
 </div>
 
-<div class="progress-section">
+<div class="unit">
+
+<div class="flip">
+<div class="num" id="hours">00</div>
+</div>
+
+<div class="label">
+HOURS
+</div>
+
+</div>
+
+<div class="unit">
+
+<div class="flip">
+<div class="num" id="minutes">00</div>
+</div>
+
+<div class="label">
+MINUTES
+</div>
+
+</div>
+
+<div class="unit">
+
+<div class="flip">
+<div class="num" id="seconds">00</div>
+</div>
+
+<div class="label">
+SECONDS
+</div>
+
+</div>
+
+</div>
+
+<div class="progress-wrap">
 
 <div class="progress-ring">
 
-<svg width="240" height="240">
+<svg width="170" height="170">
 
 <circle
-class="progress-bg"
-cx="120"
-cy="120"
-r="100">
+cx="85"
+cy="85"
+r="75"
+stroke="#222"
+stroke-width="8"
+fill="none">
 </circle>
 
 <circle
-id="progressCircle"
-class="progress-fill"
-cx="120"
-cy="120"
-r="100">
+id="ring"
+cx="85"
+cy="85"
+r="75"
+stroke="#D4AF37"
+stroke-width="8"
+fill="none"
+stroke-linecap="round"
+stroke-dasharray="471"
+stroke-dashoffset="471">
 </circle>
 
 </svg>
 
 <div class="progress-content">
 
-<h2 id="progressPercent">0%</h2>
+<h2 id="progressPercent">
 
-<p>Journey Progress</p>
+0%
+
+</h2>
+
+<span>
+
+Journey To Nikah
+
+</span>
 
 </div>
 
@@ -328,94 +568,110 @@ r="100">
 </div>
 
 <div class="stats">
-    <div class="stat-card">
-<div class="stat-number" id="sunrises">0</div>
-<div class="stat-title">Sunrises Remaining</div>
-</div>
 
-<div class="stat-card">
-<div class="stat-number" id="nights">0</div>
-<div class="stat-title">Nights Remaining</div>
-</div>
+<div class="stat">
 
-<div class="stat-card">
-<div class="stat-number" id="hoursLeft">0</div>
-<div class="stat-title">Hours To Forever</div>
-</div>
+<div
+class="stat-number"
+id="sunrises">
 
-<div class="stat-card">
-<div class="stat-number" id="minutesLeft">0</div>
-<div class="stat-title">Minutes To "I Do"</div>
-</div>
+0
 
 </div>
 
 <div
-style="
-max-width:850px;
-margin:90px auto;
-text-align:center;
-">
+class="stat-title">
 
-<div
-style="
-font-family:'Cormorant Garamond',serif;
-font-size:2rem;
-color:#D4AF37;
-margin-bottom:25px;
-">
-
-"And among His signs is that He created for you spouses from among yourselves so that you may find tranquility in them."
-
-</div>
-
-<div
-style="
-letter-spacing:3px;
-opacity:.75;
-">
-
-QURAN 30:21
+Sunrises Left
 
 </div>
 
 </div>
 
-<div
-id="celebration"
-style="
-display:none;
-text-align:center;
-margin-top:100px;
-">
-
-<h1
-style="
-font-size:6rem;
-font-family:'Cormorant Garamond',serif;
-color:#D4AF37;
-">
-
-Maaz ❤️ Simra
-
-</h1>
+<div class="stat">
 
 <div
-style="
-margin-top:20px;
-font-size:2rem;
-letter-spacing:4px;
-">
+class="stat-number"
+id="hoursLeft">
+
+0
+
+</div>
+
+<div
+class="stat-title">
+
+Hours Remaining
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div
+class="stat-number"
+id="weeksLeft">
+
+0
+
+</div>
+
+<div
+class="stat-title">
+
+Weeks To Go
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div
+class="stat-number"
+id="minutesLeft">
+
+0
+
+</div>
+
+<div
+class="stat-title">
+
+Minutes To Qubool Hai
+
+</div>
+
+</div>
+
+</div>
+
+<div class="verse">
+
+“And among His signs is that He created for you spouses from among yourselves so that you may find tranquility in them.”
+
+<br><br>
+
+Quran 30:21
+
+</div>
+
+</div>
+
+<div id="celebration">
+
+<div class="just-married">
+
+Maaz ❤ Simra
+
+</div>
+
+<div class="married-date">
 
 JUST MARRIED
 
-</div>
-
-<div
-style="
-margin-top:15px;
-opacity:.8;
-">
+<br><br>
 
 28 AUGUST 2026
 
@@ -426,326 +682,3 @@ opacity:.8;
 </div>
 
 <script>
-
-const weddingDate =
-new Date(
-"2026-08-28T20:00:00+05:30"
-);
-
-const journeyStart =
-new Date(
-"2026-06-06T00:00:00+05:30"
-);
-
-const quotes = [
-
-"83 Days Remaining",
-
-"Every day brings us closer to forever",
-
-"Two hearts. One journey.",
-
-"Only a few sunrises left",
-
-"Maaz ❤️ Simra",
-
-"Forever begins on 28 August 2026"
-
-];
-
-let quoteIndex = 0;
-
-setInterval(()=>{
-
-document
-.getElementById(
-"statusMessage"
-)
-.innerText =
-quotes[
-quoteIndex %
-quotes.length
-];
-
-quoteIndex++;
-
-},4000);
-
-const radius = 100;
-
-const circumference =
-2 * Math.PI * radius;
-
-const circle =
-document.getElementById(
-"progressCircle"
-);
-
-circle.style.strokeDasharray =
-circumference;
-
-circle.style.strokeDashoffset =
-circumference;
-
-function updateCountdown(){
-
-const now = new Date();
-
-const distance =
-weddingDate - now;
-
-if(distance <= 0){
-
-document
-.querySelector(
-".flip-clock"
-)
-.style.display =
-"none";
-
-document
-.querySelector(
-".progress-section"
-)
-.style.display =
-"none";
-
-document
-.querySelector(
-".stats"
-)
-.style.display =
-"none";
-
-document
-.getElementById(
-"celebration"
-)
-.style.display =
-"block";
-
-return;
-
-}
-
-const days =
-Math.floor(
-distance /
-(1000*60*60*24)
-);
-
-const hours =
-Math.floor(
-(
-distance %
-(1000*60*60*24)
-)
-/
-(1000*60*60)
-);
-
-const minutes =
-Math.floor(
-(
-distance %
-(1000*60*60)
-)
-/
-(1000*60)
-);
-
-const seconds =
-Math.floor(
-(
-distance %
-(1000*60)
-)
-/
-1000
-);
-
-document
-.getElementById(
-"days"
-)
-.innerText =
-String(days)
-.padStart(
-3,
-"0"
-);
-
-document
-.getElementById(
-"hours"
-)
-.innerText =
-String(hours)
-.padStart(
-2,
-"0"
-);
-
-document
-.getElementById(
-"minutes"
-)
-.innerText =
-String(minutes)
-.padStart(
-2,
-"0"
-);
-
-document
-.getElementById(
-"seconds"
-)
-.innerText =
-String(seconds)
-.padStart(
-2,
-"0"
-);
-
-const totalJourney =
-weddingDate -
-journeyStart;
-
-const elapsed =
-now -
-journeyStart;
-
-const percent =
-Math.max(
-0,
-Math.min(
-100,
-(elapsed /
-totalJourney)
-* 100
-)
-);
-
-document
-.getElementById(
-"progressPercent"
-)
-.innerText =
-percent
-.toFixed(1)
-+ "%";
-
-const offset =
-circumference -
-(
-percent /
-100
-)
-*
-circumference;
-
-circle
-.style
-.strokeDashoffset =
-offset;
-
-document
-.getElementById(
-"sunrises"
-)
-.innerText =
-days;
-
-document
-.getElementById(
-"nights"
-)
-.innerText =
-days;
-
-document
-.getElementById(
-"hoursLeft"
-)
-.innerText =
-Math.floor(
-distance /
-(1000*60*60)
-)
-.toLocaleString();
-
-document
-.getElementById(
-"minutesLeft"
-)
-.innerText =
-Math.floor(
-distance /
-(1000*60)
-)
-.toLocaleString();
-
-}
-
-setInterval(
-updateCountdown,
-1000
-);
-
-updateCountdown();
-
-/* STARS */
-
-const stars =
-document.getElementById(
-"stars"
-);
-
-for(
-let i=0;
-i<180;
-i++
-){
-
-const star =
-document
-.createElement(
-"div"
-);
-
-star.className =
-"star";
-
-star.style.left =
-Math.random()
-*
-100
-+
-"%";
-
-star.style.top =
-Math.random()
-*
-100
-+
-"%";
-
-star.style.animationDelay =
-Math.random()
-*
-5
-+
-"s";
-
-stars.appendChild(
-star
-);
-
-}
-
-</script>
-
-</body>
-
-</html>
