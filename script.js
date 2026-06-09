@@ -27,16 +27,13 @@ const weddingQuotes = [
     }
 ];
 
-// Function to pull a random dua on each page load
 function displayRandomQuote() {
     const randomIndex = Math.floor(Math.random() * weddingQuotes.length);
     const selected = weddingQuotes[randomIndex];
-    
     document.getElementById("quran-quote").innerText = selected.text;
     document.getElementById("quran-surah").innerText = selected.ref;
 }
 
-// Main Counter and Progress Calculations
 function updateCountdown() {
     const now = new Date().getTime();
     const difference = targetDate - now;
@@ -52,14 +49,12 @@ function updateCountdown() {
     const countdownArea = document.getElementById("main-countdown-area");
     const surpriseArea = document.getElementById("surprise-reveal-area");
 
-    // Handle timer expiration & Day-of Surprise Transformation
+    // Dynamic Execution Shift upon Deadline Expired (August 28, 2026, at 8:00 PM)
     if (difference <= 0) {
         clearInterval(timerInterval);
         
-        // Hide standard countdown view
         if (countdownArea) countdownArea.style.display = "none";
         
-        // Smoothly reveal the romantic statement
         if (surpriseArea && !surpriseArea.classList.contains("surprise-visible")) {
             surpriseArea.classList.remove("surprise-hidden");
             surpriseArea.classList.add("surprise-visible");
@@ -67,33 +62,27 @@ function updateCountdown() {
         return;
     }
 
-    // Calculate percentage completed from June 6th up to target date & time
+    // Dynamic scale fill matching timeline window
     const timePassed = now - startDate;
     let percentage = (timePassed / totalDuration) * 100;
     
     if (percentage < 0) percentage = 0;
     if (percentage > 100) percentage = 100;
     
-    // Update progress block components
     percentValue.innerText = percentage.toFixed(4) + "%";
     progressBlockFill.style.width = percentage.toFixed(2) + "%";
 
-    // Standard breakdown metrics
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    // Apply leading zeros to maintain symmetrical box framework
     daysElement.innerText = days < 10 ? "0" + days : days;
     hoursElement.innerText = hours < 10 ? "0" + hours : hours;
     minutesElement.innerText = minutes < 10 ? "0" + minutes : minutes;
     secondsElement.innerText = seconds < 10 ? "0" + seconds : seconds;
 }
 
-// Initialize random quote selection
 displayRandomQuote();
-
-// Run counting loops
 updateCountdown();
 const timerInterval = setInterval(updateCountdown, 1000);
