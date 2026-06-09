@@ -1,6 +1,6 @@
 // --- Timeline Benchmarks ---
 const startDate = new Date("June 6, 2026 00:00:00").getTime();
-const targetDate = new Date("August 28, 2026 00:00:00").getTime();
+const targetDate = new Date("August 28, 2026 20:00:00").getTime(); // Updated to 8:00 PM
 const totalDuration = targetDate - startDate;
 
 // --- Timeless Quranic & Islamic Quotes Array ---
@@ -15,7 +15,7 @@ const weddingQuotes = [
     },
     {
         text: "“Our Lord, grant us from among our spouses and offspring comfort to our eyes.”",
-        ref: "Surah Al-Furqan [25:74]"
+        ref: "Surah Al-Furkan [25:74]"
     },
     {
         text: "“And We created you in pairs.”",
@@ -47,19 +47,19 @@ function updateCountdown() {
     const secondsElement = document.getElementById("seconds");
     
     const percentValue = document.getElementById("percent-value");
-    const progressBarFill = document.getElementById("progress-bar-fill");
+    const progressBlockFill = document.getElementById("progress-block-fill");
 
-    // Calculate percentage completed from June 6th up to target date
+    // Calculate percentage completed from June 6th up to target date & time
     const timePassed = now - startDate;
     let percentage = (timePassed / totalDuration) * 100;
     
-    // Safety guardrails for limits
+    // Safety guardrails for timeline limits
     if (percentage < 0) percentage = 0;
     if (percentage > 100) percentage = 100;
     
-    // Update progress elements
+    // Update progress block components
     percentValue.innerText = percentage.toFixed(4) + "%";
-    progressBarFill.style.width = percentage.toFixed(2) + "%";
+    progressBlockFill.style.width = percentage.toFixed(2) + "%";
 
     // Handle timer expiration
     if (difference < 0) {
@@ -69,7 +69,7 @@ function updateCountdown() {
         minutesElement.innerText = "00";
         secondsElement.innerText = "00";
         percentValue.innerText = "100.0000%";
-        progressBarFill.style.width = "100%";
+        progressBlockFill.style.width = "100%";
         return;
     }
 
