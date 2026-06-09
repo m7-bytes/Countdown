@@ -1,9 +1,11 @@
-/* --- Color Palette & Typography Variables --- */
+/* --- Midnight Luxury Theme Variables --- */
 :root {
-    --bg-color: #fcfbfa;
-    --primary-text: #2c2a29;
-    --accent-gold: #c5a880;
-    --light-gold: #e5d4bc;
+    --bg-color: #121212;          /* Rich deep matte dark */
+    --panel-bg: #1a1a1a;          /* Soft charcoal surface */
+    --primary-text: #e6e4e2;      /* Off-white readable text */
+    --secondary-text: #a19e9a;    /* Muted silver-grey */
+    --accent-gold: #dfc198;       /* Radiant elegant gold */
+    --border-gold: #423b32;       /* Subdued warm metal border */
     --serif-font: 'Cinzel', serif;
     --sans-font: 'Montserrat', sans-serif;
 }
@@ -27,7 +29,7 @@ body {
     position: relative;
 }
 
-/* --- Subtle Luxury Framed Border --- */
+/* --- Delicate Framing --- */
 body::before {
     content: '';
     position: fixed;
@@ -35,12 +37,11 @@ body::before {
     left: 20px;
     right: 20px;
     bottom: 20px;
-    border: 1px solid var(--light-gold);
+    border: 1px solid var(--border-gold);
     pointer-events: none;
     z-index: 10;
 }
 
-/* --- Layout Container & Entry Animation --- */
 .container {
     text-align: center;
     max-width: 800px;
@@ -51,22 +52,34 @@ body::before {
     animation: fadeInUp 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-/* --- Typography Styling --- */
+/* --- Initials with Glowing Heart --- */
 .initials {
     font-family: var(--serif-font);
     font-size: 2.5rem;
     letter-spacing: 0.3rem;
     color: var(--accent-gold);
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.heart-icon {
+    font-size: 1.8rem;
+    color: #b83b3b;
+    text-shadow: 0 0 15px rgba(184, 59, 59, 0.6);
+    animation: pulse 2s infinite alternate;
 }
 
 h1 {
     font-family: var(--serif-font);
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 400;
     letter-spacing: 0.2rem;
     line-height: 1.3;
     margin-bottom: 1.5rem;
+    color: var(--primary-text);
 }
 
 .date-string {
@@ -78,32 +91,33 @@ h1 {
     font-weight: 300;
 }
 
-/* --- Grid Display for Timer --- */
+/* --- Dark Timer Boxes --- */
 .timer-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     max-width: 600px;
-    margin: 0 auto 3.5rem auto;
+    margin: 0 auto 3rem auto;
 }
 
 .timer-box {
     position: relative;
     padding: 20px 10px;
-    background: rgba(255, 255, 255, 0.6);
-    border-bottom: 1px solid var(--light-gold);
-    transition: transform 0.3s ease;
+    background: var(--panel-bg);
+    border-bottom: 2px solid var(--border-gold);
+    transition: all 0.3s ease;
 }
 
 .timer-box:hover {
     transform: translateY(-5px);
+    border-bottom-color: var(--accent-gold);
 }
 
 .number {
     font-family: var(--serif-font);
     font-size: 3.5rem;
     font-weight: 400;
-    color: var(--primary-text);
+    color: var(--accent-gold);
     line-height: 1;
     margin-bottom: 8px;
 }
@@ -112,26 +126,72 @@ h1 {
     font-size: 0.75rem;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
-    color: #7a7571;
+    color: var(--secondary-text);
     font-weight: 400;
 }
 
-/* --- Bottom Note --- */
-.message {
-    font-size: 1.1rem;
-    font-style: italic;
-    font-weight: 300;
-    line-height: 1.8;
-    color: #555;
+/* --- Clean Percentage Progress Segment --- */
+.progress-section {
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0 auto 3.5rem auto;
 }
 
-.message strong {
+.progress-text {
+    font-size: 0.85rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: var(--secondary-text);
+    margin-bottom: 12px;
+}
+
+#percent-value {
     color: var(--accent-gold);
     font-weight: 400;
 }
 
+.progress-bar-container {
+    width: 100%;
+    height: 3px;
+    background-color: #262626;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--border-gold), var(--accent-gold));
+    transition: width 0.5s ease-out;
+}
+
+/* --- Islamic Quote Area --- */
+.quote-container {
+    background: rgba(26, 26, 26, 0.4);
+    border-left: 1px solid var(--border-gold);
+    padding: 20px 30px;
+    max-width: 550px;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+.quran-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--primary-text);
+    margin-bottom: 8px;
+}
+
+.quran-reference {
+    font-size: 0.75rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    font-weight: 400;
+}
+
+/* --- Core Animations --- */
 @keyframes fadeInUp {
     to {
         opacity: 1;
@@ -139,29 +199,18 @@ h1 {
     }
 }
 
-/* --- Responsive Adjustments for Mobile Viewports --- */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.1); opacity: 1; text-shadow: 0 0 20px rgba(184, 59, 59, 0.9); }
+}
+
+/* --- Adaptability for Mobile --- */
 @media (max-width: 600px) {
-    body::before {
-        top: 12px;
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .timer-container {
-        gap: 12px;
-    }
-
-    .number {
-        font-size: 2.2rem;
-    }
-
-    .label {
-        font-size: 0.65rem;
-        letter-spacing: 0.1rem;
-    }
+    body::before { top: 12px; left: 12px; right: 12px; bottom: 12px; }
+    h1 { font-size: 2rem; }
+    .timer-container { gap: 12px; }
+    .number { font-size: 2.2rem; }
+    .label { font-size: 0.65rem; letter-spacing: 0.1rem; }
+    .quote-container { padding: 15px 20px; }
+    .quran-text { font-size: 1rem; }
 }
