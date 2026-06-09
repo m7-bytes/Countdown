@@ -1,33 +1,33 @@
 // --- Timeline Benchmarks ---
 const startDate = new Date("June 6, 2026 00:00:00").getTime();
-const targetDate = new Date("August 28, 2026 20:00:00").getTime(); // Updated to 8:00 PM
+const targetDate = new Date("August 28, 2026 20:00:00").getTime(); 
 const totalDuration = targetDate - startDate;
 
-// --- Timeless Quranic & Islamic Quotes Array ---
+// --- Intentional Duas for Active Worship (Ibadah) ---
 const weddingQuotes = [
     {
-        text: "“And He has placed between you affection and mercy.”",
-        ref: "Surah Ar-Rum [30:21]"
+        text: "“Our Lord, grant us from among our spouses and offspring comfort to our eyes and make us an example for the righteous.”",
+        ref: "Surah Al-Furqan [25:74]"
     },
     {
-        text: "“They are comforting garments for you, and you are the same for them.”",
-        ref: "Surah Al-Baqarah [2:187]"
+        text: "“May Allah bless you, and shower His blessings upon you, and join the two of you together in beautiful goodness.”",
+        ref: "Prophetic Supplication for Marital Union"
     },
     {
-        text: "“Our Lord, grant us from among our spouses and offspring comfort to our eyes.”",
-        ref: "Surah Al-Furkan [25:74]"
+        text: "“O Allah, we ask You for the goodness of this journey ahead, and the best of what follows it, clothing us in affection and mercy.”",
+        ref: "Supplication for Blessings & Protection"
     },
     {
-        text: "“And We created you in pairs.”",
-        ref: "Surah An-Naba [78:8]"
+        text: "“O Allah, make our companion a means for us to draw closer to Your pleasure, and gather our souls together in Your eternal Jannah.”",
+        ref: "Supplication for a Righteous Companionship"
     },
     {
-        text: "“May Allah bless you, and shower His blessings upon you, and join you together in goodness.”",
-        ref: "Prophetic Dua (Sunan Abi Dawud)"
+        text: "“Glory be to Him Who created all pairs, from what the earth grows and from themselves and from that which they do not know.”",
+        ref: "Surah Ya-Sin [36:36] • Contemplative Worship"
     }
 ];
 
-// Function to pull a random quote on each page load
+// Function to pull a random dua on each page load
 function displayRandomQuote() {
     const randomIndex = Math.floor(Math.random() * weddingQuotes.length);
     const selected = weddingQuotes[randomIndex];
@@ -53,7 +53,6 @@ function updateCountdown() {
     const timePassed = now - startDate;
     let percentage = (timePassed / totalDuration) * 100;
     
-    // Safety guardrails for timeline limits
     if (percentage < 0) percentage = 0;
     if (percentage > 100) percentage = 100;
     
@@ -86,7 +85,7 @@ function updateCountdown() {
     secondsElement.innerText = seconds < 10 ? "0" + seconds : seconds;
 }
 
-// Fire random quote selection on immediate script execute
+// Fire random selection on immediate script execute
 displayRandomQuote();
 
 // Run counting loops
