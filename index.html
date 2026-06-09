@@ -8,9 +8,9 @@
     <!-- Fonts: Elegant Serif and Clean Sans-Serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for the elegant heart icon -->
+    <!-- FontAwesome for the unified gold heart icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
@@ -48,16 +48,20 @@
             </div>
         </div>
 
-        <!-- Dynamic Percentile Tracking Section with Filling Block -->
+        <!-- Upgraded Timeline Container with Internal Centered Counter -->
         <div class="progress-section">
-            <div class="progress-text">Our Journey: <span id="percent-value">0.00%</span> Complete</div>
+            <div class="progress-title">The Gathering of Our Hearts</div>
             <div class="progress-block-container">
+                <!-- The numerical value sits centered in the frame -->
+                <div id="percent-value" class="percent-display-mid">0.0000%</div>
+                <!-- The physical filling block layer -->
                 <div id="progress-block-fill" class="progress-block-fill"></div>
             </div>
         </div>
 
-        <!-- Dynamic Quranic Quote Panel -->
+        <!-- Dynamic Worship/Dua Panel -->
         <div class="quote-container">
+            <div class="ibadah-notice">— A Shared Intention & Supplication —</div>
             <p id="quran-quote" class="quran-text"></p>
             <p id="quran-surah" class="quran-reference"></p>
         </div>
