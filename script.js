@@ -48,6 +48,24 @@ function updateCountdown() {
     
     const percentValue = document.getElementById("percent-value");
     const progressBlockFill = document.getElementById("progress-block-fill");
+    
+    const countdownArea = document.getElementById("main-countdown-area");
+    const surpriseArea = document.getElementById("surprise-reveal-area");
+
+    // Handle timer expiration & Day-of Surprise Transformation
+    if (difference <= 0) {
+        clearInterval(timerInterval);
+        
+        // Hide standard countdown view
+        if (countdownArea) countdownArea.style.display = "none";
+        
+        // Smoothly reveal the romantic statement
+        if (surpriseArea && !surpriseArea.classList.contains("surprise-visible")) {
+            surpriseArea.classList.remove("surprise-hidden");
+            surpriseArea.classList.add("surprise-visible");
+        }
+        return;
+    }
 
     // Calculate percentage completed from June 6th up to target date & time
     const timePassed = now - startDate;
@@ -59,18 +77,6 @@ function updateCountdown() {
     // Update progress block components
     percentValue.innerText = percentage.toFixed(4) + "%";
     progressBlockFill.style.width = percentage.toFixed(2) + "%";
-
-    // Handle timer expiration
-    if (difference < 0) {
-        clearInterval(timerInterval);
-        daysElement.innerText = "00";
-        hoursElement.innerText = "00";
-        minutesElement.innerText = "00";
-        secondsElement.innerText = "00";
-        percentValue.innerText = "100.0000%";
-        progressBlockFill.style.width = "100%";
-        return;
-    }
 
     // Standard breakdown metrics
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -85,7 +91,7 @@ function updateCountdown() {
     secondsElement.innerText = seconds < 10 ? "0" + seconds : seconds;
 }
 
-// Fire random selection on immediate script execute
+// Initialize random quote selection
 displayRandomQuote();
 
 // Run counting loops
