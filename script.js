@@ -1,73 +1,48 @@
 const weddingDate =
 new Date(
-"2026-08-28T20:00:00+05:30"
+“2026-08-28T20:00:00+05:30”
 );
 
 const journeyStart =
 new Date(
-"2026-06-06T00:00:00+05:30"
+“2026-06-06T00:00:00+05:30”
 );
 
 const messages = [
 
-"Journey To Forever",
+“Journey To Forever”,
 
-"Every Day Brings Us Closer",
+“Only A Few Sunrises Left”,
 
-"Maaz ❤ Simra",
+“Until Qubool Hai”,
 
-"Only A Few Sunrises Left",
+“Maaz ❤ Simra”,
 
-"Until Qubool Hai",
+“28 August 2026”,
 
-"28 August 2026"
+“Journey To Nikah”
 
 ];
 
-let msgIndex = 0;
+let messageIndex = 0;
 
 setInterval(()=>{
 
 document.getElementById(
-"status"
+“statusMessage”
 ).innerText =
 messages[
-msgIndex %
+messageIndex %
 messages.length
 ];
 
-msgIndex++;
+messageIndex++;
 
 },4000);
 
-function flipNumber(
-id,
-value
-){
-
-const el =
-document.getElementById(
-id
-);
-
-el.style.transform =
-"rotateX(90deg)";
-
-setTimeout(()=>{
-
-el.innerText =
-value;
-
-el.style.transform =
-"rotateX(0deg)";
-
-},150);
-
-}
-
 const ring =
 document.getElementById(
-"ring"
+“ring”
 );
 
 const circumference =
@@ -82,19 +57,29 @@ const distance =
 weddingDate -
 now;
 
-if(
-distance <= 0
-){
+if(distance <= 0){
 
-document.getElementById(
-"mainContent"
-).style.display =
-"none";
+document.querySelector(
+“.wrapper”
+).innerHTML =
 
-document.getElementById(
-"celebration"
-).style.display =
-"block";
+`
+
+<div id="celebration">
+<div class="just-married">
+
+Maaz ❤ Simra
+
+</div>
+<div class="married-date">
+
+JUST MARRIED
+
+28 AUGUST 2026
+
+</div>
+</div>
+`;
 
 return;
 
@@ -103,74 +88,62 @@ return;
 const days =
 Math.floor(
 distance /
-(1000*60*60*24)
+(1000 * 60 * 60 * 24)
 );
 
 const hours =
 Math.floor(
 (
 distance %
-(1000*60*60*24)
+(1000 * 60 * 60 * 24)
 )
 /
-(1000*60*60)
+(1000 * 60 * 60)
 );
 
 const minutes =
 Math.floor(
 (
 distance %
-(1000*60*60)
+(1000 * 60 * 60)
 )
 /
-(1000*60)
+(1000 * 60)
 );
 
 const seconds =
 Math.floor(
 (
 distance %
-(1000*60)
+(1000 * 60)
 )
 /
 1000
 );
 
-flipNumber(
-"days",
+document.getElementById(
+“days”
+).innerText =
 String(days)
-.padStart(
-3,
-"0"
-)
-);
+.padStart(3,“0”);
 
-flipNumber(
-"hours",
+document.getElementById(
+“hours”
+).innerText =
 String(hours)
-.padStart(
-2,
-"0"
-)
-);
+.padStart(2,“0”);
 
-flipNumber(
-"minutes",
+document.getElementById(
+“minutes”
+).innerText =
 String(minutes)
-.padStart(
-2,
-"0"
-)
-);
+.padStart(2,“0”);
 
-flipNumber(
-"seconds",
+document.getElementById(
+“seconds”
+).innerText =
 String(seconds)
-.padStart(
-2,
-"0"
-)
-);
+.padStart(2,“0”);
 
 const totalJourney =
 weddingDate -
@@ -188,18 +161,16 @@ Math.min(
 (
 elapsed /
 totalJourney
-)
-*100
+) * 100
 )
 );
 
 document.getElementById(
-"progressPercent"
+“progressPercent”
 ).innerText =
-progress
-.toFixed(1)
+progress.toFixed(1)
 +
-"%";
+“%”;
 
 const offset =
 circumference -
@@ -210,37 +181,36 @@ progress /
 *
 circumference;
 
-ring.style
-.strokeDashoffset =
+ring.style.strokeDashoffset =
 offset;
 
 document.getElementById(
-"sunrises"
+“sunrises”
 ).innerText =
 days;
 
 document.getElementById(
-"hoursLeft"
+“hoursLeft”
 ).innerText =
 Math.floor(
 distance /
-(1000*60*60)
+(1000 * 60 * 60)
 )
 .toLocaleString();
 
 document.getElementById(
-"weeksLeft"
+“weeksLeft”
 ).innerText =
 Math.ceil(
-days/7
+days / 7
 );
 
 document.getElementById(
-"minutesLeft"
+“minutesLeft”
 ).innerText =
 Math.floor(
 distance /
-(1000*60)
+(1000 * 60)
 )
 .toLocaleString();
 
@@ -253,54 +223,50 @@ updateCountdown,
 1000
 );
 
+/* Background Stars */
+
 const stars =
 document.getElementById(
-"stars"
+“stars”
 );
 
 for(
-let i=0;
-i<120;
+let i = 0;
+i < 120;
 i++
 ){
 
 const star =
 document.createElement(
-"div"
+“div”
 );
 
 star.className =
-"star";
+“star”;
 
 star.style.left =
 Math.random()
 *
 100
 +
-"%";
+“%”;
 
 star.style.top =
 Math.random()
 *
 100
 +
-"%";
+“%”;
 
 star.style.animationDelay =
 Math.random()
 *
 5
 +
-"s";
+“s”;
 
 stars.appendChild(
 star
 );
 
 }
-
-</script>
-
-</body>
-
-</html>
